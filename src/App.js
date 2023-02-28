@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { coffeesLoader, dialsLoader } from "./routes/loaders";
+
+import Coffees from "./components/Coffees/Coffees";
+import Dials from "./components/Dials/Dials";
+import ErrorPage from "./routes/errorPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Coffees />,
+    errorElement: <ErrorPage />,
+    loader: coffeesLoader,
+    // children: {
+    //   path: "coffees/:coffeeId",
+    //   element: <Coffee />,
+    // },
+  },
+  {
+    path: ":cofffId/dials",
+    element: <Dials />,
+    errorElement: <ErrorPage />,
+    loader: dialsLoader,
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <RouterProvider router={router} />
     </div>
   );
 }
