@@ -12,13 +12,9 @@ const router = createBrowserRouter([
     element: <Coffees />,
     errorElement: <ErrorPage />,
     loader: coffeesLoader,
-    // children: {
-    //   path: "coffees/:coffeeId",
-    //   element: <Coffee />,
-    // },
   },
   {
-    path: ":cofffId/dials",
+    path: ":coffeeId/dials",
     element: <Dials />,
     errorElement: <ErrorPage />,
     loader: dialsLoader,
