@@ -1,21 +1,36 @@
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  Route,
+  RouterProvider,
+  Routes,
+} from "react-router-dom";
 import { coffeesLoader, dialsLoader } from "./routes/loaders";
 
 import Coffees from "./components/Coffees/Coffees";
 import Dials from "./components/Dials/Dials";
 import ErrorPage from "./routes/errorPage";
+import Layout from "./components/Layout/Layout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Coffees />,
+    element: (
+      <Layout>
+        <Coffees />
+      </Layout>
+    ),
     errorElement: <ErrorPage />,
     loader: coffeesLoader,
   },
   {
-    path: ":coffeeId/dials",
-    element: <Dials />,
+    path: "dials",
+    element: (
+      <Layout>
+        <Dials />
+      </Layout>
+    ),
     errorElement: <ErrorPage />,
     loader: dialsLoader,
   },
