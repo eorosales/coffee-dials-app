@@ -1,3 +1,5 @@
+import Grid from "@mui/material/Grid";
+
 import { useState } from "react";
 import { useLoaderData, useRevalidator } from "react-router-dom";
 import { db } from "../../config/firebase";
@@ -9,6 +11,8 @@ import {
   doc,
 } from "firebase/firestore";
 import Coffee from "../Coffee/Coffee";
+import { Outlet } from "react-router-dom";
+import { Box } from "@mui/system";
 
 function Coffees() {
   // Form input controlled value states
@@ -57,40 +61,22 @@ function Coffees() {
 
   return (
     <div className='App'>
-      <h1>Coffee Dials App</h1>
-
-      <div>
-        <input
-          placeholder='Roaster...'
-          value={roaster}
-          onChange={(e) => setRoaster(e.target.value)}
-        />
-        <input
-          placeholder='Origin'
-          value={origin}
-          onChange={(e) => setOrigin(e.target.value)}
-        />
-        <input
-          placeholder='Process'
-          value={process}
-          onChange={(e) => setProcess(e.target.value)}
-        />
-        <input
-          placeholder='Notes separated by commas'
-          value={notes}
-          onChange={(e) => setNotes(e.target.value.split(","))}
-        />
-        <button onClick={onSubmitCoffee}>Submit</button>
-        {coffees.map((coffee) => (
-          <ul key={coffee.id}>
-            <Coffee
-              coffee={coffee}
-              db={db}
-              deleteCoffee={(id) => deleteCoffee(id)}
-            />
-          </ul>
-        ))}
-      </div>
+      <Box>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}>
+          {coffees.map((coffee) => (
+            <Grid item xs={2} sm={4} md={4} key={coffee.id}>
+              <Coffee
+                coffee={coffee}
+                db={db}
+                deleteCoffee={(id) => deleteCoffee(id)}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </div>
   );
 }

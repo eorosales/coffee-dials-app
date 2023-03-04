@@ -1,4 +1,10 @@
-import React from "react";
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -11,24 +17,23 @@ const Coffee = ({ coffee, db, deleteCoffee }) => {
   // };
 
   return (
-    <div>
-      <p>Roaster: {coffee.roaster}</p>
-      <p>Origin: {coffee.origin}</p>
-      <p>Process: {coffee.process}</p>
-      <ul>
-        {coffee.notes.map((note) => (
-          <li key={note}>{note}</li>
-        ))}
-      </ul>
-      <button onClick={() => deleteCoffee(coffee.id)}>Delete Coffee</button>
-      <Link to={`dials/${coffee.id}`}>Dials</Link>
-      <Link to={`${coffee.id}/dials`}>Add Dial</Link>
-      {/* <input
-        placeholder='New Coffee...'
-        onChange={(e) => setUpdatedRoaster(e.target.value)}
-      /> */}
-      {/* <button onClick={() => updateRoaster(coffee.id)}>Update</button> */}
-    </div>
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+        <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
+          {coffee.process} Process
+        </Typography>
+        <Typography variant='h5' component='div'>
+          {coffee.roaster}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color='text.secondary'>
+          {coffee.origin}
+        </Typography>
+        <Typography variant='body2'>{coffee.notes}</Typography>
+      </CardContent>
+      <CardActions>
+        <Button size='small'>Learn More</Button>
+      </CardActions>
+    </Card>
   );
 };
 

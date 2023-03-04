@@ -1,3 +1,8 @@
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { coffeesLoader, dialsLoader } from "./routes/loaders";
@@ -5,20 +10,24 @@ import { coffeesLoader, dialsLoader } from "./routes/loaders";
 import Coffees from "./components/Coffees/Coffees";
 import Dials from "./components/Dials/Dials";
 import ErrorPage from "./routes/errorPage";
+import NewCoffeeForm from "./components/NewCoffeeForm/NewCoffeeForm";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Coffees />,
+    element: <NewCoffeeForm />,
     errorElement: <ErrorPage />,
-    loader: coffeesLoader,
-    // children: {
-    //   path: "coffees/:coffeeId",
-    //   element: <Coffee />,
-    // },
+
+    children: [
+      {
+        path: "new",
+        element: <NewCoffeeForm />,
+        loader: coffeesLoader,
+      },
+    ],
   },
   {
-    path: ":cofffId/dials",
+    path: ":coffeeId/dials",
     element: <Dials />,
     errorElement: <ErrorPage />,
     loader: dialsLoader,
