@@ -1,8 +1,18 @@
-import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Coffee = ({ coffee, db, deleteCoffee }) => {
+  // let { roaster, origin, process, notes } = coffee;
+
+  const formattedInfo = () => {
+    return Object.entries(coffee).map(([key, value]) => {
+      console.log(key, value);
+    });
+  };
+
+  formattedInfo();
+
   // const [updatedRoaster, setUpdatedRoaster] = useState("");
 
   // const updateRoaster = async (id) => {
@@ -18,7 +28,7 @@ const Coffee = ({ coffee, db, deleteCoffee }) => {
         <p className='mt-4 text-base text-gray-700'>{coffee.notes}</p>
 
         <Link
-          to={`dials/${coffee.id}`}
+          // to={`coffees/${roaster}-${coffee.origin}`}
           className='inline-flex items-center justify-center px-4 py-1 mt-3 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700 mr-4'>
           Dials
         </Link>
