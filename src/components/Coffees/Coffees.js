@@ -59,31 +59,43 @@ function Coffees() {
 
   return (
     <div className='flex flex-col '>
-      <form className='flex mx-auto'>
-        <input
-          placeholder='Roaster...'
-          value={roaster}
-          onChange={(e) => setRoaster(e.target.value)}
-          Name='block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600'
-        />
-        <input
-          placeholder='Origin'
-          value={origin}
-          onChange={(e) => setOrigin(e.target.value)}
-          Name='block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600'
-        />
-        <input
-          placeholder='Process'
-          value={process}
-          onChange={(e) => setProcess(e.target.value)}
-          Name='block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600'
-        />
-        <input
-          placeholder='Notes separated by commas'
-          value={notes}
-          onChange={(e) => setNotes(e.target.value.split(","))}
-          Name='block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600'
-        />
+      <form className='flex mt-8 mx-auto'>
+        <label className='block'>
+          <span>Roaster</span>
+          <input
+            type='text'
+            value={roaster}
+            onChange={(e) => setRoaster(e.target.value)}
+            className='mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black'
+          />
+        </label>
+        <label className='block'>
+          <span>Origin</span>
+          <input
+            type='text'
+            value={origin}
+            onChange={(e) => setOrigin(e.target.value)}
+            className='mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black'
+          />
+        </label>
+        <label className='block'>
+          <span>Process</span>
+          <input
+            type='text'
+            value={process}
+            onChange={(e) => setProcess(e.target.value)}
+            className='mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black'
+          />
+        </label>
+        <label className='block'>
+          <span>Notes</span>
+          <input
+            type='text'
+            value={process}
+            onChange={(e) => setNotes(e.target.value.split(","))}
+            className='mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black'
+          />
+        </label>
         <button onClick={onSubmitCoffee}>Submit</button>
       </form>
       <section className='grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 p-16 lg:grid-cols-4 lg:gap-8 xl:gap-14'>
