@@ -11,23 +11,23 @@ const Coffee = ({ coffee, db, deleteCoffee }) => {
   // };
 
   return (
-    <div>
-      <p>Roaster: {coffee.roaster}</p>
-      <p>Origin: {coffee.origin}</p>
-      <p>Process: {coffee.process}</p>
-      <ul>
-        {coffee.notes.map((note) => (
-          <li key={note}>{note}</li>
-        ))}
-      </ul>
-      <button onClick={() => deleteCoffee(coffee.id)}>Delete Coffee</button>
-      <Link to={`dials/${coffee.id}`}>Dials</Link>
-      <Link to={`${coffee.id}/dials`}>Add Dial</Link>
-      {/* <input
-        placeholder='New Coffee...'
-        onChange={(e) => setUpdatedRoaster(e.target.value)}
-      /> */}
-      {/* <button onClick={() => updateRoaster(coffee.id)}>Update</button> */}
+    <div className='grid grid-cols-1 shadow shadow-stone-400 rounded-md'>
+      <div className='py-8 px-9'>
+        <p className='text-lg font-bold text-black'>{coffee.roaster}</p>
+        <p className=' text-gray-600 text-500'>{coffee.origin}</p>
+        <p className='mt-4 text-base text-gray-700'>{coffee.notes}</p>
+
+        <Link
+          to={`dials/${coffee.id}`}
+          className='inline-flex items-center justify-center px-4 py-1 mt-3 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700 mr-4'>
+          Dials
+        </Link>
+        <Link
+          to={`${coffee.id}/dials`}
+          className='inline-flex items-center justify-center px-4 py-1 mt-3 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700'>
+          Add Dial
+        </Link>
+      </div>
     </div>
   );
 };
