@@ -9,8 +9,7 @@ const Nav = () => {
 
         <div className='flex gap-4'>
           <nav className='flex gap-4'>
-            <NavLink to={"/"}>Home</NavLink>
-            <NavLink to={"dials"}>Dials</NavLink>
+            <NavLink to={"/"}>Coffees</NavLink>
           </nav>
           <p>Sign Out</p>
           <p>Avatar</p>
