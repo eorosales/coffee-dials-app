@@ -3,7 +3,7 @@ import { db } from "../../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useRevalidator } from "react-router-dom";
 
-const NewDialForm = () => {
+const NewDialForm = ({ coffeeId }) => {
   const [dialInput, setDialInput] = useState({
     temp: "",
     weight: "",
@@ -28,6 +28,7 @@ const NewDialForm = () => {
     e.preventDefault();
     try {
       await addDoc(dialsCollectionRef, {
+        coffee: coffeeId,
         temp: dialInput.temp,
         weight: dialInput.weight,
         time: dialInput.time,

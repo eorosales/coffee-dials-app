@@ -1,11 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  Route,
-  RouterProvider,
-  Routes,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { coffeesLoader, dialsLoader } from "./routes/loaders";
 
 import Coffees from "./components/Coffees/Coffees";
@@ -25,7 +19,7 @@ const router = createBrowserRouter([
     loader: coffeesLoader,
   },
   {
-    path: "dials",
+    path: ":coffeeId/dials",
     element: (
       <Layout>
         <Dials />
