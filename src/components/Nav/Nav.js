@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <header className='bg-gray-800'>
+    <header className='bg-slate-900'>
       <div className='flex h-16 items-center mx-auto justify-between max-w-10xl px-4 sm:px-6  text-white'>
         <h1>Coffee Dials</h1>
 

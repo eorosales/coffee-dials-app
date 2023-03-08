@@ -3,6 +3,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { useRevalidator } from "react-router-dom";
 const NewCoffeeForm = ({ db }) => {
   // Form input controlled value states
+  const [coffeeName, setCoffeeName] = useState("");
   const [roaster, setRoaster] = useState("");
   const [origin, setOrigin] = useState("");
   const [process, setProcess] = useState("");
@@ -26,6 +27,7 @@ const NewCoffeeForm = ({ db }) => {
     e.preventDefault();
     try {
       await addDoc(coffeesCollectionRef, {
+        coffeeName,
         roaster,
         origin,
         process,
@@ -39,14 +41,14 @@ const NewCoffeeForm = ({ db }) => {
   };
 
   return (
-    <form className='flex gap-20 my-8 mx-auto'>
+    <form className='flex gap-20 my-8 mx-auto md:flex-cols'>
       <div className='block relative z-0'>
         <input
           type='text'
           id='floating_standard'
           placeholder=' '
-          value={roaster}
-          onChange={(e) => setRoaster(e.target.value)}
+          value={coffeeName}
+          onChange={(e) => setCoffeeName(e.target.value)}
           className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
         />
         <label

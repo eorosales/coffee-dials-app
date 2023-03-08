@@ -5,6 +5,7 @@ import { useRevalidator } from "react-router-dom";
 
 const NewDialForm = ({ coffeeId }) => {
   const [dialInput, setDialInput] = useState({
+    coffeeName: "",
     temp: "",
     weight: "",
     time: "",
@@ -39,15 +40,18 @@ const NewDialForm = ({ coffeeId }) => {
       console.error(err);
     }
   };
+
   return (
     <form
       className='flex justify-center gap-20 my-8 mx-auto w-3/4'
       onSubmit={handleSubmit}>
       <div className='block relative z-0'>
         <input
-          type='text'
+          type='number'
           id='floating_standard'
           placeholder=' '
+          name='temp'
+          required
           value={dialInput.temp}
           onChange={(e) => handleChange(e)}
           className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
@@ -61,9 +65,11 @@ const NewDialForm = ({ coffeeId }) => {
 
       <div className='block relative z-0'>
         <input
-          type='text'
+          type='number'
           id='floating_standard'
           placeholder=' '
+          name='weight'
+          required
           value={dialInput.weight}
           onChange={(e) => handleChange(e)}
           className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
@@ -77,9 +83,11 @@ const NewDialForm = ({ coffeeId }) => {
 
       <div className='block relative z-0'>
         <input
-          type='text'
+          type='number'
           id='floating_standard'
           placeholder=' '
+          name='time'
+          required
           value={dialInput.time}
           onChange={(e) => handleChange(e)}
           className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
@@ -93,10 +101,12 @@ const NewDialForm = ({ coffeeId }) => {
 
       <div className='block relative z-0'>
         <input
-          type='text'
+          type='number'
           id='floating_standard'
           placeholder=' '
           value={dialInput.volume}
+          name='volume'
+          required
           onChange={(e) => handleChange(e)}
           className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
         />
