@@ -2,6 +2,7 @@ import { useState } from "react";
 import { db } from "../../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useRevalidator } from "react-router-dom";
+import { useWeather } from "../../hooks/useWeather";
 
 const NewDialForm = ({ coffeeId }) => {
   const [dialInput, setDialInput] = useState({
@@ -11,6 +12,7 @@ const NewDialForm = ({ coffeeId }) => {
     time: "",
     volume: "",
   });
+  const { temp, rain, humidity } = useWeather();
 
   const dialsCollectionRef = collection(db, "dials");
   const revalidator = useRevalidator();
@@ -34,6 +36,11 @@ const NewDialForm = ({ coffeeId }) => {
         weight: dialInput.weight,
         time: dialInput.time,
         volume: dialInput.volume,
+        currentTemp: {
+          temp,
+          rain,
+          humidity,
+        },
       });
       revalidator.revalidate();
     } catch (err) {

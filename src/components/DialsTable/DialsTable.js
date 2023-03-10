@@ -18,6 +18,18 @@ const DialsTable = ({ dials, coffeeId, deleteDial }) => {
             <th scope='col' className='px-6 py-3'>
               Yield (g)
             </th>
+            <th scope='col' className='px-6 py-3'>
+              Temp
+            </th>
+            <th scope='col' className='px-6 py-3'>
+              Rain
+            </th>
+            <th scope='col' className='px-6 py-3'>
+              Humidity
+            </th>
+            <th scope='col' className='px-6 py-3'>
+              &nbsp;
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -37,6 +49,11 @@ const DialsTable = ({ dials, coffeeId, deleteDial }) => {
                   {dial.time}
                 </td>
                 <td className='px-6 py-4'>{dial.volume}</td>
+                <td className='px-6 py-4'>
+                  {dial.currentTemp.temp} {`\u00b0`}F
+                </td>
+                <td className='px-6 py-4'>{dial.currentTemp.rain} in.</td>
+                <td className='px-6 py-4'>{dial.currentTemp.humidity}%</td>
                 <td>
                   <span
                     className='text-slate-300 hover:cursor-pointer hover:text-black'

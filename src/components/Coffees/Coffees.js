@@ -6,11 +6,11 @@ import NewCoffeeForm from "../NewCoffeeForm/NewCoffeeForm";
 
 function Coffees() {
   // Router utilities
+
   const { coffees } = useLoaderData();
   const revalidator = useRevalidator();
 
   // Delete coffee and revalidate loader data
-
   const deleteCoffee = async (id) => {
     const coffeeDoc = doc(db, "coffees", id);
     await deleteDoc(coffeeDoc);

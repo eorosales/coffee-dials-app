@@ -47,6 +47,7 @@ const NewCoffeeForm = ({ db }) => {
           type='text'
           id='floating_standard'
           placeholder=' '
+          required
           value={coffeeName}
           onChange={(e) => setCoffeeName(e.target.value)}
           className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
@@ -63,6 +64,7 @@ const NewCoffeeForm = ({ db }) => {
           type='text'
           id='floating_standard'
           placeholder=' '
+          required
           value={roaster}
           onChange={(e) => setRoaster(e.target.value)}
           className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
@@ -79,6 +81,7 @@ const NewCoffeeForm = ({ db }) => {
           type='text'
           id='floating_standard'
           placeholder=' '
+          required
           value={origin}
           onChange={(e) => setOrigin(e.target.value)}
           className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
@@ -95,6 +98,7 @@ const NewCoffeeForm = ({ db }) => {
           type='text'
           id='floating_standard'
           placeholder=' '
+          required
           value={process}
           onChange={(e) => setProcess(e.target.value)}
           className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
@@ -111,6 +115,7 @@ const NewCoffeeForm = ({ db }) => {
           type='text'
           id='floating_standard'
           placeholder=' '
+          required
           value={notes}
           onChange={(e) => setNotes(e.target.value.split(","))}
           className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
